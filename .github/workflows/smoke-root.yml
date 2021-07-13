@@ -12,4 +12,4 @@ jobs:
 
     steps:
       - name: Smoke
-        run: docker run -t tibtibdocker/perl-smoker-root
+        run: docker run tibtibdocker/perl-smoker-root
