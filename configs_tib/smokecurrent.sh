@@ -25,6 +25,6 @@ PATH=/home/Test-Smoke/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbi
 
 export PATH
 umask 0
-/usr/bin/perl /home/Test-Smoke/bin/tssmokeperl.pl -c "$CFGNAME" $continue $* > smokecurrent.log 2>&1
+/usr/bin/perl /home/Test-Smoke/bin/tssmokeperl.pl -c "$CFGNAME" $continue $*
 
 rm "$LOCKFILE"
