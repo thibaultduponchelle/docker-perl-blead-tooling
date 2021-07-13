@@ -1,0 +1,14 @@
+name : smoke-root
+
+on: 
+  push: 
+  schedule:
+    - cron: '* * */1 * *'
+
+jobs:
+  perl:
+
+    runs-on: ubuntu-latest
+
+    steps:
+        run: docker run -t tibtibdocker/perl-smoker-root
