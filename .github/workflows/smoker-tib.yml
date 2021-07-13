@@ -1,4 +1,4 @@
-name : smoker-root
+name : smoker-tib
 
 on: 
   push: 
@@ -10,9 +10,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: docker build
-        run: docker build -t tibtibdocker/perl-smoker-root .
+      - name: docker build -f DockerfileTib
+        run: docker build -t tibtibdocker/perl-smoker-tib .
       - name: docker login
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
       - name: docker push
-        run: docker push tibtibdocker/perl-smoker-root
+        run: docker push tibtibdocker/perl-smoker-tib
