@@ -1,4 +1,4 @@
-name : smoke-root
+name : smoke-as-root
 
 on: 
   push: 
