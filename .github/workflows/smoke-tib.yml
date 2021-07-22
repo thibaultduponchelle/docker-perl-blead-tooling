@@ -1,4 +1,4 @@
-name : smoke-tib
+name : smoke-as-tib
 
 on: 
   push: 
