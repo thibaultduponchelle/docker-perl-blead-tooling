@@ -7,7 +7,7 @@ RUN apt-get update \
 
 WORKDIR /home
 
-RUN git clone https://github.com/abeltje/Test-Smoke.git@Test-Smoke-1.81
+RUN git clone https://github.com/abeltje/Test-Smoke.git --branch Test-Smoke-1.81
 RUN curl -L https://cpanmin.us | perl - System::Info Capture::Tiny CGI::Util LWP::UserAgent
 
 WORKDIR /home/Test-Smoke/bin
