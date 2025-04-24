@@ -1,18 +1,17 @@
 FROM ubuntu:18.04
 
 RUN apt-get update \
-    && apt-get -y install wget unzip build-essential curl git \
+    && apt-get -y install wget unzip build-essential curl \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /home
+RUN wget -q https://github.com/Perl/perl5/archive/blead.zip \
+    && unzip blead.zip \
+    && cd perl5-blead \
+    && unset PERL5LIB \
+    && ./Configure -des -Dprefix=/opt/perl -Dman1dir=none -Dman3dir=none -Dlddlflags=-shared -DLibs='-lm -ldl -lpthread -lcrypt -lutil -lc' -Dusethreads -Dcc=gcc -Dld=gcc -Dcccdlflags=-fPIC -Dusedl -Ddlsrc=dl_dlopen.xs -Dusedevel \
+    && make \
+    && make install \
+    && ln -s /opt/perl/bin/perl5.*  /opt/perl/bin/perl
 
-RUN git clone https://github.com/Perl-Toolchain-Gang/Test-Smoke.git
-RUN curl -L https://cpanmin.us | perl - System::Info Capture::Tiny CGI::Util LWP::UserAgent
-
-WORKDIR /home/Test-Smoke/bin
-
-COPY configs/* ./
-RUN chmod +x smokecurrent.sh
-
-CMD ["./smokecurrent.sh"]
+CMD ["/opt/perl/bin/perl", "-V"]
