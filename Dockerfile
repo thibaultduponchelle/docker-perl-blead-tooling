@@ -7,7 +7,7 @@ RUN apt-get update \
 
 WORKDIR /home
 
-RUN git clone https://github.com/abeltje/Test-Smoke.git
+RUN git clone https://github.com/Perl-Toolchain-Gang/Test-Smoke.git
 RUN curl -L https://cpanmin.us | perl - System::Info Capture::Tiny CGI::Util LWP::UserAgent
 
 WORKDIR /home/Test-Smoke/bin
